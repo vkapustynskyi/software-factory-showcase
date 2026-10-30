@@ -95,28 +95,17 @@ Full model: [docs/security-model.md](docs/security-model.md).
 
 ## Honest limits
 
-- **Test weakening inside a test is not detected.** A test emptied of its assertions, disabled, or with
-  fewer parameterized cases keeps its count.
-- **Java name-resolution tricks inside the project's own packages are out of scope for the
-  deterministic guard.** They are left to review: an accepted risk today, with an independent AI review
+- **Java name-resolution tricks inside the project's own packages** are out of scope for the
+  deterministic guard. They are left to review: an accepted risk today, with an independent AI review
   job planned.
 - **Open web reading.** The agent can read the web for documentation. A prompt-injected agent could
   leak repository source through a URL. No credential is in its reach, and every URL is logged.
 - **Risky changes need a human.** Nothing in an owner-review category merges without the owner's label.
 - **An owner re-run is a merge.** Auto-merge stays armed while a check is red, so an owner re-run or
   branch update that turns everything green merges the PR.
-- **Anything holding the owner's login can approve.** A compromised owner account defeats the label
-  check.
-- **The branch must be up to date.** If the main branch moves during a run, the PR waits for a branch
-  update.
 - **Private repository, no fork PRs.** The guard's setup is safe only while no fork can open a PR.
-- **Subscription sign-in mode is unit-tested but not yet verified on a live run.** Live runs use the
-  federated API credential: a short-lived Claude token obtained in exchange for GitHub's identity token.
 - **Tuned for one stack.** The rules are written and tested for a Java 21 / Maven project; package
   roots and build-output folders are constants set per project.
-
-Planned, not live: a split into planning, coding and independent review jobs, and packaging the
-pipeline as a reusable engine any repository can install.
 
 ## What's in the real system
 

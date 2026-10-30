@@ -104,7 +104,7 @@ assumed. The job keeps network access, which the build tool needs to fetch depen
   workflow. No Claude API key is stored anywhere.
 - **Claude, subscription mode.** An optional mode uses an OAuth token kept in an environment limited to
   the main branch, used only by the subscription variant of the agent job. Only the chosen credential
-  ever enters a job. This mode is unit-tested but not yet verified on a live run.
+  ever enters a job.
 - **GitHub App.** Its token can write contents and pull requests of this one repository only: no
   workflow files, no administration. The job pins the repository's name and immutable id, so a
   repository re-created under the same name stops it.

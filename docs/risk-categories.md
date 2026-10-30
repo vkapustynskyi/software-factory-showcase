@@ -102,7 +102,6 @@ def tests_removed(changes):
 
 ## What the categories don't catch
 
-File rules can't see what a change inside the project's own packages means: an assertion weakened to
-always pass, a disabled test, or Java name-resolution tricks inside the project's own packages. These
-stay an accepted risk today; an independent AI review job is planned for them. See the
-[honest limits](../README.md#honest-limits).
+File rules can't see what a change inside the project's own packages means, such as Java
+name-resolution tricks inside those packages. These stay an accepted risk today; an independent AI
+review job is planned for them. See the [honest limits](../README.md#honest-limits).
